@@ -18,7 +18,7 @@ export const deleteMessage = async (req, res) => {
   try {
     const message = await messageModel.findById(id);
     if (message.receiverId.toString() == req.currentUserId.toString()) {
-      const deletedMessage = await messageModelModel.findByIdAndDelete(
+      const deletedMessage = await messageModel.findByIdAndDelete(
         { _id: id },
         { post }
       );
