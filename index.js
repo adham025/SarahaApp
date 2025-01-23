@@ -10,6 +10,9 @@ const port = process.env.PORT || 5000;
 connection();
 
 app.use("/auth", allRoutes.authRouter);
+app.use("/user", allRoutes.userRouter);
+app.use("/message", allRoutes.messageRouter);
+connection();
 
 app.use("*", (req, res) => {
   res.send("In-valid Routing Plz check url or method");

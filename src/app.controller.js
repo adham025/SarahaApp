@@ -1,3 +1,5 @@
-import authRouter from "./modules/auth/service/auth.service.js";
+import authRouter from "./modules/auth/auth.controller.js";
+import messageRouter from "./modules/message/message.controller.js";
+import userRouter from "./modules/user/user.controller.js";
 
-export { authRouter };
+export { authRouter, messageRouter, userRouter };

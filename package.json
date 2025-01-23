@@ -1,0 +1,31 @@
+{
+  "name": "sarahaapp",
+  "version": "1.0.0",
+  "description": "It contains the backend code, which allows users to send and receive anonymous feedback. The backend is built using Node.js and Express.js, providing CRUD functionality for feedback and user authentication. The database used is MongoDB, with the help of Mongoose for modeling data.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adham025/SarahaApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adham025/SarahaApp/issues"
+  },
+  "homepage": "https://github.com/adham025/SarahaApp#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "nodemailer": "^6.10.0"
+  }
+}
