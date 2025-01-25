@@ -14,7 +14,7 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    profilePicture: { type: String },
+    profilePic: String,
   },
   { timestamps: true }
 );

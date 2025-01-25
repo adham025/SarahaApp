@@ -6,12 +6,13 @@ export const addMessage = async (req, res) => {
     const { receiverId } = req.params;
     let { text } = req.body;
     let foundedUser = await userModel.findById(receiverId);
+    console.log(foundedUser);
     if (foundedUser) {
       let addMes = new messageModel({ text, receiverId });
       let added = await addMes.save();
       res.json({ message: "added", added });
     } else {
-      res.json({ message: "invalid user" });
+      res.json({ message: "in-valid user " });
     }
   } catch (error) {
     res.json({ message: "invalid user" });

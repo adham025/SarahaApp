@@ -12,7 +12,7 @@ connection();
 app.use("/auth", allRoutes.authRouter);
 app.use("/user", allRoutes.userRouter);
 app.use("/message", allRoutes.messageRouter);
-connection();
+app.use("/uploads", express.static("./uploads"));
 
 app.use("*", (req, res) => {
   res.send("In-valid Routing Plz check url or method");

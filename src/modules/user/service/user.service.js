@@ -16,17 +16,37 @@ export const userData = async (req, res) => {
 export const deleteMessage = async (req, res) => {
   const { id } = req.params;
   try {
+    console.log(id);
+
     const message = await messageModel.findById(id);
     if (message.receiverId.toString() == req.currentUserId.toString()) {
       const deletedMessage = await messageModel.findByIdAndDelete(
         { _id: id },
-        { post }
+        { message }
       );
-      res.json({ message: "deleted", deleteMessage });
+      res.json({ message: "deleted", deletedMessage });
     } else {
       res.json({ message: "not deleted", error });
     }
   } catch (error) {
     res.json({ message: "not deleted", error });
+  }
+};
+
+export const profilePic = async (req, res) => {
+  if (req.imageError) {
+    res.json({ message: "Invalid file" });
+  } else {
+    if (!req.file) {
+      console.log(req.file);
+
+      res.json({ message: "Please upload image" });
+    } else {
+      await userModel.updateOne(
+        { _id: req.currentUserId },
+        { profilePic: req.file.path }
+      );
+      res.json({ message: "Done" });
+    }
   }
 };

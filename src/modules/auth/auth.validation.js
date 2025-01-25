@@ -5,17 +5,19 @@ export const signUpSchema = {
     .object()
     .required()
     .keys({
-      name: joi.string().min(4).max(10).required(),
+      userName: joi.string().min(4).max(10).required(),
       email: joi
         .string()
         .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }),
       password: joi
         .string()
-        .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
+        .pattern(new RegExp("^[A-Z][a-z0-9]{3,30}$"))
         .required(),
       cPassword: joi.ref("password"),
+      phone: joi.string().min(11).max(11).required(),
     }),
 };
+
 export const signInSchema = {
   body: joi
     .object()
@@ -26,7 +28,6 @@ export const signInSchema = {
         .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }),
       password: joi
         .string()
-        .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
         .required(),
     }),
 };
